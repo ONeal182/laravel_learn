@@ -42,3 +42,32 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return 'This page is about';
 });
+
+// Route::get('/contact', function () {
+//     return view('contact');
+// });
+
+// Route::post('/send-email', function () {
+//     if(!empty($_POST)){
+//         dump($_POST);
+//     }
+//     return 'send-email';
+// });
+
+Route::match(['get', 'post'], '/contact', function () {
+        if(!empty($_POST)){
+        dump($_POST);
+    }
+    return view('contact');
+})->name('contact');
+
+Route::any('/any', function () {
+    if(!empty($_POST)){
+        dump($_POST);
+    }
+    return view('contact');
+});
+
+Route::view('/test', 'test',['test_date'=>'test']);
+
+Route::redirect('/about', '/contact', 302);
