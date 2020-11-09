@@ -10,5 +10,7 @@
     <p><?=$res;?></p>
     {{ $res }}
     {{ $name }}
+    {{route('post',['id'=>3])}}
+    {{route('admin.post',['id'=>3])}}
 </body>
 </html>

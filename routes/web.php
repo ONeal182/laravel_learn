@@ -54,7 +54,7 @@ Route::get('/about', function () {
 //     return 'send-email';
 // });
 
-Route::match(['get', 'post'], '/contact', function () {
+Route::match(['get', 'post', 'put'], '/contact', function () {
         if(!empty($_POST)){
         dump($_POST);
     }
@@ -71,3 +71,24 @@ Route::any('/any', function () {
 Route::view('/test', 'test',['test_date'=>'test']);
 
 Route::redirect('/about', '/contact', 302);
+
+// Route::get('/post/{id}/{slug}', function ($id,$slug) {
+//     return 'Post '.$id . ' slug ' . $slug;
+// })->where(['id'=> '[0-9]+','slug' => '[A-Za-z0-9-]+']);
+
+Route::get('/post/{id}/{slug?}', function ($id,$slug = null) {
+    return 'Post '.$id . ' slug ' . $slug;
+})->name('post');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/post', function () {
+        return 'posts list';
+    });
+    
+    Route::get('/post/create', function () {
+        return 'posts create';
+    });
+    
+    Route::get('/post/{id}/edit', function ($id) {
+        return 'posts update ' .$id;
+    })->name('post');
+});
