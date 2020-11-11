@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\test\TestController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/test', [HomeController::class, 'test']);
 Route::get('/page/{slug}', [PageController::class, 'show']);
+Route::get('/test123', [TestController::class, 'index']);
 // Route::get('/', function () {
 //     return view('welcome');
 // });
