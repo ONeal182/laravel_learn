@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+
+
+    public function __construct(Request $request){
+        dump($request->route()->getName());
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('posts.index');
     }
 
     /**
@@ -23,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -45,7 +51,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Posts".$id;
     }
 
     /**
@@ -56,7 +62,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('posts.edit', ['id'=>$id]);
     }
 
     /**
@@ -68,7 +74,8 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       dump($id);
+       dd($request);
     }
 
     /**
@@ -79,6 +86,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dump(__METHOD__);
+        dd($id);
     }
 }
