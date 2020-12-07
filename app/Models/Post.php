@@ -13,5 +13,7 @@ class Post extends Model
     // protected $primaryKey = 'Code';
     // public $incrementing = false;
     // protected $keyType = 'string';
-    protected $attributes = ['content'=> 'lorem ipsum....'];
+    // protected $attributes = ['content'=> 'lorem ipsum....'];
+
+    protected $fillable = ['title', 'content'];
 }

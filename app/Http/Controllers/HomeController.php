@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Post;
+use App\Models\Country;
+use App\Models\City;
 use Illuminate\Support\Facades\DB;
 
 
@@ -36,10 +38,40 @@ class HomeController extends Controller
 
 
     // dd($data);
-    $post = new Post();
-    $post->title = 'Статья 2';
-    // $post->content = 'loream ipsum';
-    $post->save();
+    // $post = new Post();
+    // $post->title = 'Статья 2';
+    // // $post->content = 'loream ipsum';
+    // $post->save();
+
+    // $data = Country::limit(10)->get();
+    // $data = Country::where('Code', '<', 'ALB')->offset(2)->limit(2)->get();
+    // $data = City::find(5);
+    // $data = Country::find('AGO');
+    
+    
+    
+    // $post = new Post();
+    // $post->title = 'post 4';
+    // $post->content = 'loream ipsum 4...';
+    // $post->save();
+
+    // Post::create(['title'=>'post 6','content'=>'lorem ipsum 6']);
+    // $post = Post::find(5);
+    // $post->content = 'lorem ipsum 5';
+    // $post->save();
+    // Post::update(['title'=>'post 6','content'=>'lorem ipsum 6']);
+    // Post::where('id', '>', '3')->update(['updated_at' => NOW()]);
+    // Post::where('id', '=', '3')->delete();
+    // Post::destroy(6);
+
+
+
+
+
+
+
+
+    // dd($data);
         return view('home', ['res'=>5,'name'=>'jojo']);
     }
 
